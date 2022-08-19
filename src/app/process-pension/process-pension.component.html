@@ -1,0 +1,26 @@
+<ng-template #loading>
+    <h6 class="text-center text-danger" style="font-weight: bolder;" *ngIf="responseData==false">Data Not Found! Try again with different input.</h6>
+    <app-loading-spinner></app-loading-spinner>
+</ng-template>
+<div class="container" *ngIf="!isLoading && responseData; else loading">
+    <div class="row">
+        <div class="col-6 p-2">
+            <div class="form-group row">
+                <label for="pensionAmount" class="col-sm-6 col-form-label">Pension Amount</label>
+                <div class="col-sm-6">
+                  <input type="text" readonly class="p-2" id="pensionAmount" [value]="responseData.pensionAmount | currency:'INR'">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6 mt-2 p-2">
+            <div class="form-group row">
+                <label for="bankServiceCharge" class="col-sm-6 col-form-label">Bank Service Charge</label>
+                <div class="col-sm-6">
+                  <input type="text" readonly class="p-2" id="bankServiceCharge" [value]="responseData.bankServiceCharge | currency:'INR'">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

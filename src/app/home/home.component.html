@@ -1,0 +1,48 @@
+<div class="card container-fluid bg-white mt-4 p-2">
+  <div class="row mt-2">
+    <div class="col-12">
+      <h4 class="text-center">Pension Management System</h4>
+    </div>
+  </div>
+  <div class="accordion" id="pensionerDetails">
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingOne">
+        <button class="accordion-button" style="font-weight: bold;" type="button" data-bs-toggle="collapse"
+          data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          Pensioner Details
+        </button>
+      </h2>
+      <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+        data-bs-parent="#pensionerDetails">
+        <div class="accordion-body">
+          <app-pensioner-details></app-pensioner-details>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row p-2 ml-3">
+    <div class="card">
+      <div class="card-body">
+        <h6 class="card-title">Process Pension</h6>
+        <form (ngSubmit)="fetchPensionDetails(f)" #f="ngForm">
+          <div class="row">
+            <div class="col-4">
+              <input type="text" id="aadhaarNumber" name="aadhaarNumber" class="form-control" [ngClass]="(f.form.controls.aadhaarNumber?.valid) ? 'is-valid' : 'is-invalid' " pattern="[0-9]*" maxlength="12" ngModel required minlength="12" placeholder="Enter Aadhaar Number..." >
+              <div class="invalid-feedback" *ngIf="f.form.controls.aadhaarNumber?.errors?.required">Aadhaar Number is required</div>
+              <div class="invalid-feedback" *ngIf="f.form.controls.aadhaarNumber?.errors?.minlength">Aadhaar Number length should be exactly 12 characters</div>
+              <div class="invalid-feedback" *ngIf="f.form.controls.aadhaarNumber?.errors?.maxlength">Aadhaar Number length should not exceed 12 characters</div>
+              <div class="invalid-feedback" *ngIf="f.form.controls.aadhaarNumber?.errors?.pattern">Aadhaar Number must contain only numbers</div>
+              <div class="valid-feedback">{{f.value.aadhaarNumber }} is valid</div>
+            </div>
+            <div class="col-2">
+              <button type="submit" [disabled]="!f.valid" class="btn btn-success" >Search</button>
+            </div>
+            <div class="col-6">
+              <app-process-pension *ngIf="formSubmitted"></app-process-pension>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

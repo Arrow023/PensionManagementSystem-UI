@@ -1,0 +1,46 @@
+<ng-template #spinner>
+    <app-loading-spinner></app-loading-spinner>
+</ng-template>
+
+<form (ngSubmit)="onSubmit(f)" #f="ngForm" *ngIf="!isLoading; else spinner">
+    <div class="container">
+        <br>
+        <br>
+        <div class="col-md-6 offset-md-3">
+            <div class="card bg-white">
+                <div class="card-body">
+                    <div class="container">
+                        <div class="row">
+                            <i class="card-title"><h3 class="text-center">Login</h3></i>
+                            <h5 class="card-subtitle text-center mt-2 text-danger">**Please login to continue**</h5>
+                        </div>
+                        <div class="form-group">
+                            <div class="form-floating">
+                                <input type="text" id="username" class="form-control" name="username" [ngClass]="(f.form.controls.username?.valid) ? 'is-valid' : 'is-invalid' " placeholder="username" ngModel required >
+                                <label for="username">Username</label>
+                                <div class="invalid-feedback" *ngIf="f.form.controls.username?.errors?.required">Username is required</div>
+                                <!-- <div class="invalid-feedback" *ngIf="f.form.controls.username?.errors?.minlength">Username length should be greater than 7 characters</div> -->
+                                <div class="valid-feedback">{{f.value.username }} is valid</div>
+                            </div>
+                            <div class="mt-3 form-floating">
+                                <input type="password" id="password" class="form-control" name="password" [ngClass]="(f.form.controls.password?.valid) ? 'is-valid' : 'is-invalid' " placeholder="password" required ngModel > 
+                                <label for="password">Password</label>
+                                <!-- pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$" -->
+                                <div class="invalid-feedback" *ngIf="f.form.controls.password?.errors?.required">Password is required</div>
+                                <!-- <div class="invalid-feedback" *ngIf="f.form.controls.password?.errors?.pattern">Password should have minimum eight characters, at least one letter, one number and one special character</div> -->
+                                <div class="valid-feedback">Password is valid</div>
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-12 form-group">
+                                <button class="btn btn-success" type="submit" [disabled]="!f.valid">Login</button>
+                            </div>
+                        </div>
+                    </div>
+                        
+
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
