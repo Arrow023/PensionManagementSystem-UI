@@ -1,5 +1,6 @@
-@import url("./materia.css");
+@import url("./style.css");
 /* You can add global styles to this file, and also import other style files */
-body {
-    background-color: rgb(94, 173, 253);
+body
+{
+    background-color: rgb(172, 214, 254);
 }

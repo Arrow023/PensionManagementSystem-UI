@@ -1,0 +1,32 @@
+#charges
+{
+    background-color: rgb(225, 222, 254);
+}
+
+::ng-deep footer {
+    padding:20px;
+    margin-top:20px;
+    position:inherit !important;
+    bottom:0;
+    width: 100%;
+}
+
+.invalid-feedback
+{
+    color:red;
+}
+
+.card-title
+{
+    color:black;
+}
+
+.valid-feedback
+{
+    color:green;
+}
+
+[type=submit]:not(:disabled)
+{
+    background-color: green;
+}

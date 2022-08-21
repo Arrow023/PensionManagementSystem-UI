@@ -12,6 +12,8 @@ import { HeaderComponent } from './header/header.component';
 import { PensionerDetailsComponent } from './pensioner-details/pensioner-details.component';
 import { AuthInterceptorInterceptor } from './services/auth-interceptor.interceptor';
 import { ProcessPensionComponent } from './process-pension/process-pension.component';
+import { FooterComponent } from './footer/footer.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { ProcessPensionComponent } from './process-pension/process-pension.compo
     HomeComponent,
     HeaderComponent,
     PensionerDetailsComponent,
-    ProcessPensionComponent
+    ProcessPensionComponent,
+    FooterComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

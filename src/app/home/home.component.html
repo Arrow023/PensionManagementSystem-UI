@@ -1,7 +1,8 @@
 <div class="card container-fluid bg-white mt-4 p-2">
   <div class="row mt-2">
     <div class="col-12">
-      <h4 class="text-center">Pension Management System</h4>
+      <!-- <h4 class="text-center">Pension Management System</h4> -->
+      <img src="../../assets/home.jpg" class="img-fluid rounded" style="width:100%">
     </div>
   </div>
   <div class="accordion" id="pensionerDetails">
@@ -14,14 +15,15 @@
       </h2>
       <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
         data-bs-parent="#pensionerDetails">
-        <div class="accordion-body">
+        <div class="accordion-body bg-light">
           <app-pensioner-details></app-pensioner-details>
         </div>
       </div>
     </div>
   </div>
   <div class="row p-2 ml-3">
-    <div class="card">
+    <div class="card" id="charges">
+      <h3 class="text-center mt-1" style="color:black">Estimate Charges</h3>
       <div class="card-body">
         <h6 class="card-title">Process Pension</h6>
         <form (ngSubmit)="fetchPensionDetails(f)" #f="ngForm">
